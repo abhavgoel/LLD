@@ -18,7 +18,17 @@ class Graph{
     //API methods
     int V() const;//returns number of vertices - const to it doenst modify the value pf member variables
     int E() const;//Returns the number of edges
-    bool isAdjacent(int x, int y);//Check if two vertices are connected
+    bool isAdjacent(int x, int y) const;//Check if two vertices are connected
+    std::vector<int> getNeighbours(int x) const;
+    void addEdge(int x, int y, double edgeWt);
+    void deleteEdge(int x, int y);
+    double getEdgeValue(int x, int y) const;
+    void setEdgeValue(int x, int y, double edgeWt);
+
+
+
+
+
 
 
 
