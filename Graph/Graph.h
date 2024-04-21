@@ -1,11 +1,15 @@
 #include<iostream>
 #include<vector>
+#include<map>
 
+
+class ShortestPath;
 
 class Graph{
     private:
-    int _vertices;
-    int _edges;
+    int num_vertices;
+    int num_edges;
+    std::map<int, std::string> nodeNames;
     std::vector<std::vector<std::pair<int,double>>>_adjList;
 
     public:
@@ -24,15 +28,9 @@ class Graph{
     void deleteEdge(int x, int y);
     double getEdgeValue(int x, int y) const;
     void setEdgeValue(int x, int y, double edgeWt);
+    void setNodeValue(int x, std::string nodeName);
+    std::string getNodeValue(int x);
 
-
-
-
-
-
-
-
-
-    
+    friend class ShortestPath;
 
 };

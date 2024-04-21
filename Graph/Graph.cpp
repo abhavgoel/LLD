@@ -4,37 +4,37 @@
 
 //intialize empty graph
 Graph::Graph() 
-            : _vertices(0) , 
-            _edges(0), 
+            : num_vertices(0) , 
+            num_edges(0), 
             _adjList(std::vector<std::vector<std::pair<int,double>>>{}) {}
 
 //intiliaze graph with given number of vertices
 Graph::Graph(int vertices) 
-            : _vertices(vertices),
-            _edges(0),
+            : num_vertices(vertices),
+            num_edges(0),
             _adjList(std::vector<std::vector<std::pair<int,double>>>(vertices,std::vector<std::pair<int,double>>())){}
 
 //intialize graph with adjacency list
 Graph::Graph(std::vector<std::vector<std::pair<int,double>>> &adjList)
-            : _vertices(adjList.size()),
-            _edges(0),
+            : num_vertices(adjList.size()),
+            num_edges(0),
             _adjList(adjList)
             {
                 for(auto &it:_adjList) {
-                    _edges+=it.size();
+                    num_edges+=it.size();
                 }
-                _edges = _edges/2; //undirected graph
+                num_edges = num_edges/2; //undirected graph
             }
 
 //intiliaze a random graph
 Graph::Graph(int vertices, double density, std::pair<double,double>distanceRange)
-            : _vertices(vertices),
-            _edges(0),
+            : num_vertices(vertices),
+            num_edges(0),
             _adjList(std::vector<std::vector<std::pair<int,double>>>(vertices,std::vector<std::pair<int,double>>()))
             {
-                for(int i=0;i<_vertices;i++)
+                for(int i=0;i<num_vertices;i++)
                 {
-                    for(int j=i+1;j<_vertices;j++)
+                    for(int j=i+1;j<num_vertices;j++)
                     {
                         double prob = static_cast<double>(rand()) / RAND_MAX;
                         if(prob<=density)
@@ -49,16 +49,16 @@ Graph::Graph(int vertices, double density, std::pair<double,double>distanceRange
 
 //copy constructor
 Graph::Graph(const Graph &g)
-            : _vertices(g._vertices),
-            _edges(g._edges),
+            : num_vertices(g.num_vertices),
+            num_edges(g.num_edges),
             _adjList(g._adjList){}
 
 int Graph::V() const {
-    return _vertices;
+    return num_vertices;
 }
 
 int Graph::E() const {
-    return _edges;
+    return num_edges;
 }
 
 bool Graph::isAdjacent(int x, int y) const {
@@ -81,14 +81,14 @@ std::vector<int>Graph::getNeighbours(int x) const {
 }
 
 void Graph::addEdge(int x, int y, double edgeWt) {
-    _edges++;
+    num_edges++;
     _adjList[x].push_back(std::make_pair(y,edgeWt));
     _adjList[y].push_back(std::make_pair(x,edgeWt)); 
 }
 
 void Graph::deleteEdge(int x, int y) {
 
-    _edges--;
+    num_edges--;
 
     for(auto it = _adjList[x].begin();it != _adjList[x].end() ;) {
         if(it->first==y) {
@@ -130,5 +130,13 @@ void Graph::setEdgeValue(int x, int y, double edgeWt) {
             break;
         }
     }
+}
+
+std::string Graph::getNodeValue(int x) {
+    return nodeNames[x];
+}
+
+void Graph::setNodeValue(int x, std::string nodeName) {
+    nodeNames[x] = nodeName;
 }
 
