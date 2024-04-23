@@ -1,19 +1,20 @@
+#ifndef GRAPH_H
+#define GRAPH_H
+
+
 #include<iostream>
 #include<vector>
 #include<map>
 
-
-class ShortestPath;
-
+// class ShortestPath;
 class Graph{
     private:
     int num_vertices;
     int num_edges;
     std::map<int, std::string> nodeNames;
-    std::vector<std::vector<std::pair<int,double>>>_adjList;
+    std::vector<std::vector<std::pair<int,double>>>_adjList; //{u ->{v,edgeWt}}
 
     public:
-    Graph();//default contructor
     Graph(int vertices);//Make graph from V vertices
     Graph(std::vector<std::vector<std::pair<int,double>>>&adjList);//Initialize using a adjacency list
     Graph(int vertices, double density, std::pair<double,double>distanceRange);//Initialize using density of edges
@@ -32,5 +33,8 @@ class Graph{
     std::string getNodeValue(int x);
 
     friend class ShortestPath;
+   
 
 };
+
+#endif

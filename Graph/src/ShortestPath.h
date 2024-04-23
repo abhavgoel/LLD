@@ -1,7 +1,11 @@
+#ifndef SHORTESTPATH_H
+#define SHORTESTPATH_H
+
 #include<algorithm>
 #include<iostream>
 #include<queue>
 #include "Graph.h"
+
 
 class ShortestPath {
     private:
@@ -11,10 +15,11 @@ class ShortestPath {
     std::priority_queue<std::pair<double,int>,std::vector<std::pair<double,int>>,std::greater<std::pair<double,int>>>pq; //min heap
 
     public:
-    ShortestPath(Graph g) {}
-    std::vector<std::string>listOfVertices(){}
-    int shortestPathCost(int source, int destination){}//returns path cost
-    std::string shortestPath(int source, int destination){}//return path from source to destination as a string
+    ShortestPath(Graph g);
+    std::vector<std::string>listOfVertices();
+    int shortestPathCost(int source, int destination);//returns path cost
+    std::string shortestPath(int source, int destination);//return path from source to destination as a string
     
-
 };
+
+#endif

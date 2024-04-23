@@ -2,11 +2,6 @@
 #include<vector>
 #include "Graph.h"
 
-//intialize empty graph
-Graph::Graph() 
-            : num_vertices(0) , 
-            num_edges(0), 
-            _adjList(std::vector<std::vector<std::pair<int,double>>>{}) {}
 
 //intiliaze graph with given number of vertices
 Graph::Graph(int vertices) 
