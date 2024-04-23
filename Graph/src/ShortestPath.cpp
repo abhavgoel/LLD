@@ -4,6 +4,7 @@
 
 
 ShortestPath::ShortestPath(Graph g) : graph(g){
+    parent.resize(g.num_vertices);
     for(int i=0;i<graph.V();i++) parent[i]=i;
 }
 
