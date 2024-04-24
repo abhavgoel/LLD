@@ -1,8 +1,0 @@
-{
-    "files.associations": {
-        "*.cpp": "cpp",
-        "*.html": "html",
-        "vector": "cpp",
-        "iosfwd": "cpp"
-    }
-}
