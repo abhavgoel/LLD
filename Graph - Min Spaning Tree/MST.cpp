@@ -24,6 +24,9 @@ void MST::primsAlgorithm() {
         vis[node] = 1;
         mstSum += d;
         
+        if(d!=0)
+        mstEdges.push_back(d);
+        
         for(auto i:graph._adjList[node]) {
             double edgeWt = i.second;
             int adjNode = i.first;
@@ -41,3 +44,6 @@ double MST::minSpanningTreeSum() {
     return mstSum;
 }
 
+std::vector<double> MST::minSpanningTreeEdges() {
+    return mstEdges;
+}
