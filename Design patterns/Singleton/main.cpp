@@ -15,5 +15,4 @@ int main() {
     std::cout<<"singleton1's address: "<<singleton1<<std::endl;
     std::cout<<"singleton2's address: "<<singleton2<<std::endl;
 
-
 }

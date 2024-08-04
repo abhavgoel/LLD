@@ -31,7 +31,6 @@ class Singleton {
     std::string getValue() {
         return this->value;
     }
-
 };
 
 Singleton* Singleton::instance = nullptr;
